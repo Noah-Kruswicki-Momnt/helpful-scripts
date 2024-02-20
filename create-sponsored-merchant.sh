@@ -15,7 +15,7 @@ function usage {
   echo "    -e <environment>: Specify the environment to create the sponsor on (ex: qa4.qa.)"
   echo "    -a <authorization>: Specify the basic authorization string used to create the sponsored merchant" 
   echo " "
-  echo "Example : sh ./create-sponsored-merchant.sh -e qa4.qa. -s acorn -t me-618"
+  echo "Example : SPONSOR_AUTH=<insert-auth-token> sh ./create-sponsored-merchant.sh -e qa4.qa. -s acorn -t me-618"
   exit 1
 }
 
