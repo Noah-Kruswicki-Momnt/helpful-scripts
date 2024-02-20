@@ -80,7 +80,7 @@ createSponsoredMerchant () {
     }'
 
     # Print payload
-    echo "\033[34m Sending the follwing data to \033[31m $sponsor_baseurl/api/v1/sponsor/merchants/onboarding/\033[34m: \n $json_data \033[0m"
+    echo "\033[34m Sending the follwing data to \033[31m$sponsor_baseurl/api/v1/sponsor/merchants/onboarding/\033[34m: \n $json_data \033[0m"
 
     # Make API call
     curl --location --request POST "$sponsor_baseurl/api/v1/sponsor/merchants/onboarding/" \
