@@ -30,6 +30,7 @@ while getopts "t:s:e:a:" opt; do
     esac
 done
 
+# Verify required data
 if [ -z $sponsor ]
 then
     echo "ERROR: No sponsor was provided and no default value has been set"
@@ -39,11 +40,12 @@ fi
 
 if [ -z $auth ]
 then
-    echo "ERROR: Basic auth is required. None was found at SPONSOR_AUTH and none was passed in."
+    echo "ERROR: Basic auth is required. No value was found at the environement variable SPONSOR_AUTH and no auth was passed in."
     usage
     exit
 fi
 
+# Generate sponsor urls
 if [ "$sponsor" = "acorn" ]; then
     acorn_baseurl=https://"$environment"getacornfinance.com
     acorn_redirect=https://my.acornfinance.com/sign-in
