@@ -9,10 +9,11 @@ sponsor_baseurl=""
 sponsor_redirect=""
 
 function usage {
-  echo "Usage: $0 [-t <ticket_number>] [-s <sponsor>] [-e <environment>]"
+  echo "Usage: $0 [-t <ticket_number>] [-s <sponsor>] [-e <environment>] [-a <authorization>]"
   echo "    -t <ticket_number>: Specify the ticket number under test (optional)"
   echo "    -s <sponsor>: Specify the sponsor name in lowercase (acron or paradigm)"
   echo "    -e <environment>: Specify the environment to create the sponsor on (ex: qa4.qa.)"
+  echo "    -a <authorization>: Specify the basic authorization string used to create the sponsored merchant" 
   echo "\n"
   echo "Example : sh ./create-sponsored-merchant.sh -e qa4.qa. -s acorn -t me-618"
   exit 1
@@ -75,9 +76,10 @@ json_data='{
     "sponsor_redirect_url": "'"$sponsor_redirect"'"
 }'
 
-# print debug information
+# Print payload
 echo "Sending the follwing data to $sponsor_baseurl/api/v1/sponsor/merchants/onboarding/: \n $json_data"
 
+# Make API call
 curl --location --request POST "$sponsor_baseurl/api/v1/sponsor/merchants/onboarding/" \
 --header "Content-Type: application/json" \
 --header "Authorization: Basic $auth" \
